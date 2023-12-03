@@ -1,0 +1,20 @@
+body {
+    background-color: aliceblue;
+    color: blue;
+}
+h3,
+.date,
+.temp,
+.feels,
+.humidity,
+.wind,
+.cityName {
+color: midnightblue;
+}
+.h3 {
+    text-align: center;
+}
+.data {
+    color: blue;
+    left: 20px;
+}
