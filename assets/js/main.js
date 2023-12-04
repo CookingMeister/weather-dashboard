@@ -1,25 +1,31 @@
 let btn = document.querySelector(".btn");
-let cityArray = [];
-let cityArrayString = localStorage.getItem("array");
-let newL = document.createElement("ul");
-let html = `<li>${cityArrayString}</li>`;
-newL.innerHTML = html;
-document.querySelector(".list").appendChild(newL);
+let cityArray = JSON.parse(localStorage.getItem("array")) || [];
+
+cityArray.forEach((index) => {
+    let newL = document.createElement("ul");
+    html = `<li>${index}</li>`;
+    newL.innerHTML = html;
+    document.querySelector(".list").appendChild(newL);
+});
 
 btn.addEventListener("click", function (event) {
   event.preventDefault();
+  if (cityArray.length > 6) {
+    console.log("the list is longer than 6");
+    cityArray.shift();
+    localStorage.setItem("array", JSON.stringify(cityArray));
+    cityArray = JSON.parse(localStorage.getItem("array"));
+  }
   let chosenCity = document.querySelector(".textField").value;
   console.log(chosenCity);
 
-  let cityArrayString = localStorage.getItem("array");
-  let cityArray = JSON.parse(cityArrayString) || [];
-
-  localStorage.setItem("array", JSON.stringify(cityArray));
+  cityArray = JSON.parse(localStorage.getItem("array")) || [];
   cityArray.push(chosenCity);
+  localStorage.setItem("array", JSON.stringify(cityArray));
   console.log(cityArray);
 
   let newL = document.createElement("ul");
-  let html = `<li>${cityArray}</li>`;
+  let html = `<li>${cityArray[cityArray.length - 1]}</li>`;
   newL.innerHTML = html;
   document.querySelector(".list").appendChild(newL);
 
@@ -35,7 +41,7 @@ btn.addEventListener("click", function (event) {
   let file = url + latitude + longitude + apiOptions + key;
 
   caches.delete(fileG);
-  caches.delete(file)
+  caches.delete(file);
 
   fetch(fileG, { cache: "no-cache" })
     .then(function (response) {
@@ -49,7 +55,6 @@ btn.addEventListener("click", function (event) {
       console.log("Latitude is " + lat);
       console.log("Longitude is " + lon);
       getWeather();
-
     })
     .catch(function () {
       console.log("Error");
@@ -60,7 +65,7 @@ btn.addEventListener("click", function (event) {
     longitude = "lon=" + lon + "&";
     file = url + latitude + longitude + apiOptions + key;
 
-    caches.delete(file)
+    caches.delete(file);
 
     fetch(file, { cache: "no-cache" })
       .then(function (response) {
