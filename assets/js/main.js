@@ -92,7 +92,10 @@ btn.addEventListener("click", function (event) {
         let date = new Date(timestamp * 1000);
         let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
         console.log(date.toLocaleString());
-        document.querySelector(".date").textContent = date.toLocalString;
+        let onlyDate = `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()}`;
+        document.querySelector(".date").textContent = onlyDate;
         document.querySelector(".iconImg").src = iconURL;
         // console.log(iconURL);
         console.log("The weather is " + main + " with " + description);
@@ -107,13 +110,10 @@ btn.addEventListener("click", function (event) {
         let wind1 = parseFloat(data.list[8].wind.speed * 3.6).toFixed(2);
 
         timestamp = data.list[8].dt;
-
         date = new Date(timestamp * 1000);
-
-        let onlyDate = `${
+        onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-
         console.log(onlyDate);
         // document.querySelector(".date1").textContent = onlyDate;
         console.log("temperature of " + temp1 + " °C");
