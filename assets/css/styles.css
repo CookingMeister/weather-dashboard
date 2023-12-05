@@ -18,3 +18,12 @@ color: midnightblue;
     color: blue;
     left: 20px;
 }
+
+
+.card {
+    margin-bottom: 2rem;
+    
+}
+.card-body {
+    background-color: rgb(165, 216, 248);
+}

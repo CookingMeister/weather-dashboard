@@ -42,7 +42,7 @@ btn.addEventListener("click", function (event) {
 
   caches.delete(fileG);
   caches.delete(file);
-
+// Get geo coordinates from name
   fetch(fileG, { cache: "no-cache" })
     .then(function (response) {
       return response.json();
@@ -59,7 +59,7 @@ btn.addEventListener("click", function (event) {
     .catch(function () {
       console.log("Error");
     });
-
+// Get weather from coordinates
   function getWeather() {
     latitude = "lat=" + lat + "&";
     longitude = "lon=" + lon + "&";
@@ -86,9 +86,7 @@ btn.addEventListener("click", function (event) {
         let temp = Math.round(data.list[0].main.temp);
         document.querySelector(".temp").textContent = `Temp: ${temp} °C`;
         let humidity = data.list[0].main.humidity;
-        document.querySelector(
-          ".humidity"
-        ).textContent = `Humidity: ${humidity} %`;
+        document.querySelector(".humidity").textContent = `Humidity: ${humidity} %`;
         let wind = parseFloat(data.list[0].wind.speed * 3.6).toFixed(1);
         document.querySelector(".wind").textContent = `Wind: ${wind} km/hr`;
 
@@ -102,12 +100,12 @@ btn.addEventListener("click", function (event) {
         }/${date.getDate()}/${date.getFullYear()}`;
         document.querySelector(".date").textContent = onlyDate;
         document.querySelector(".iconImg").src = iconURL;
-        // console.log(iconURL);
         console.log("The weather is " + main + " with " + description);
         console.log("temperature of " + temp + " °C");
         console.log("humidity of " + humidity + " %");
         console.log("wind of " + wind + " km/hr");
-
+        let icon1 = data.list[8].weather[0].icon;
+        let iconURL1 = `https://openweathermap.org/img/wn/${icon1}@2x.png`;
         let temp1 = Math.round(data.list[8].main.temp);
         let main1 = data.list[8].weather[0].main;
         let description1 = data.list[8].weather[0].description;
@@ -116,16 +114,23 @@ btn.addEventListener("click", function (event) {
 
         timestamp = data.list[8].dt;
         date = new Date(timestamp * 1000);
-        onlyDate = `${
+        let onlyDate1 = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
         console.log(onlyDate);
-        // document.querySelector(".date1").textContent = onlyDate;
+        document.querySelector(".cityName1").textContent = city + ", " + country;
+        document.querySelector(".date1").textContent = onlyDate1;
+        document.querySelector(".iconImg1").src = iconURL1;
         console.log("temperature of " + temp1 + " °C");
-        // document.querySelector(".temp1").textContent = `Temp: ${temp1} °C`;
+        document.querySelector(".temp1").textContent = `Temp: ${temp1} °C`;
         console.log("The weather is " + main1 + " with " + description1);
+        document.querySelector(".description1").textContent =
+          main1 + " with " + description1;
         console.log("humidity of " + humidity1 + " %");
+        document.querySelector(".humidity1").textContent = `Humidity: ${humidity1} %`;
         console.log("wind of " + wind1 + " km/hr");
+        document.querySelector(".wind1").textContent = `Wind: ${wind1} km/hr`;
+
       })
       .catch(function () {
         console.log("Error");
