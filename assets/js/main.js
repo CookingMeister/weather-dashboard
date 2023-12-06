@@ -134,17 +134,92 @@ btn.addEventListener("click", function (event) {
         let wind2 = parseFloat(data.list[16].wind.speed * 3.6).toFixed(2);
         timestamp = data.list[16].dt;
         date = new Date(timestamp * 1000);
-        let onlyDate1 = `${
+        let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
         document.querySelector(".cityName2").textContent = city + ", " + country;
-        document.querySelector(".date2").textContent = onlyDate1;
-        document.querySelector(".iconImg2").src = iconURL1;
-        document.querySelector(".temp2").textContent = `Temp: ${temp1} °C`;
+        document.querySelector(".date2").textContent = onlyDate;
+        document.querySelector(".iconImg2").src = iconURL2;
+        document.querySelector(".temp2").textContent = `Temp: ${temp2} °C`;
         document.querySelector(".description2").textContent =
-          main1 + " with " + description1;
-        document.querySelector(".humidity2").textContent = `Humidity: ${humidity1} %`;
-        document.querySelector(".wind2").textContent = `Wind: ${wind1} km/hr`;
+          main2 + " with " + description2;
+        document.querySelector(".humidity2").textContent = `Humidity: ${humidity2} %`;
+        document.querySelector(".wind2").textContent = `Wind: ${wind2} km/hr`;
+      }
+      getThirdDay();
+      // Third day forecast values
+      function getThirdDay() {
+
+        let icon3 = data.list[24].weather[0].icon;
+        let iconURL3 = `https://openweathermap.org/img/wn/${icon3}@2x.png`;
+        let temp3 = Math.round(data.list[24].main.temp);
+        let main3 = data.list[24].weather[0].main;
+        let description3 = data.list[24].weather[0].description;
+        let humidity3 = data.list[24].main.humidity;
+        let wind3 = parseFloat(data.list[24].wind.speed * 3.6).toFixed(2);
+        timestamp = data.list[24].dt;
+        date = new Date(timestamp * 1000);
+        let onlyDate = `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()}`;
+        document.querySelector(".cityName3").textContent = city + ", " + country;
+        document.querySelector(".date3").textContent = onlyDate;
+        document.querySelector(".iconImg3").src = iconURL3;
+        document.querySelector(".temp3").textContent = `Temp: ${temp3} °C`;
+        document.querySelector(".description3").textContent =
+          main3 + " with " + description3;
+        document.querySelector(".humidity3").textContent = `Humidity: ${humidity3} %`;
+        document.querySelector(".wind3").textContent = `Wind: ${wind3} km/hr`;
+      }
+      getFourthDay();
+      // Fourth day forecast values
+      function getFourthDay() {
+
+        let icon4 = data.list[32].weather[0].icon;
+        let iconURL4 = `https://openweathermap.org/img/wn/${icon4}@2x.png`;
+        let temp4 = Math.round(data.list[32].main.temp);
+        let main4 = data.list[32].weather[0].main;
+        let description4 = data.list[32].weather[0].description;
+        let humidity4 = data.list[32].main.humidity;
+        let wind4 = parseFloat(data.list[32].wind.speed * 3.6).toFixed(2);
+        timestamp = data.list[32].dt;
+        date = new Date(timestamp * 1000);
+        let onlyDate = `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()}`;
+        document.querySelector(".cityName4").textContent = city + ", " + country;
+        document.querySelector(".date4").textContent = onlyDate;
+        document.querySelector(".iconImg4").src = iconURL4;
+        document.querySelector(".temp4").textContent = `Temp: ${temp4} °C`;
+        document.querySelector(".description4").textContent =
+          main4 + " with " + description4;
+        document.querySelector(".humidity4").textContent = `Humidity: ${humidity4} %`;
+        document.querySelector(".wind4").textContent = `Wind: ${wind4} km/hr`;
+      }
+      getFifthDay();
+      // Fifth day forecast values
+      function getFifthDay() {
+
+        let icon5 = data.list[39].weather[0].icon;
+        let iconURL5 = `https://openweathermap.org/img/wn/${icon5}@2x.png`;
+        let temp5 = Math.round(data.list[39].main.temp);
+        let main5 = data.list[39].weather[0].main;
+        let description5 = data.list[39].weather[0].description;
+        let humidity5 = data.list[39].main.humidity;
+        let wind5 = parseFloat(data.list[39].wind.speed * 3.6).toFixed(2);
+        timestamp = data.list[39].dt;
+        date = new Date(timestamp * 1000);
+        let onlyDate = `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()}`;
+        document.querySelector(".cityName5").textContent = city + ", " + country;
+        document.querySelector(".date5").textContent = onlyDate;
+        document.querySelector(".iconImg5").src = iconURL5;
+        document.querySelector(".temp5").textContent = `Temp: ${temp5} °C`;
+        document.querySelector(".description5").textContent =
+          main5 + " with " + description5;
+        document.querySelector(".humidity5").textContent = `Humidity: ${humidity5} %`;
+        document.querySelector(".wind5").textContent = `Wind: ${wind5} km/hr`;
       }
       })
       .catch(function () {
