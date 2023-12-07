@@ -13,194 +13,187 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- Weather Container -->
     <section class="container py-5">
-
-      <div class="row row-cols-2 h-100">
-        <div class="col-md-6 col-lg-4 col-xl-4">
+      <!-- First row -->
+      <div class="row">
+        <!-- Search column -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
           <h3 class="mb-4 pb-2 text-center">Check the weather forecast</h3>
 
           <div class="input-group rounded mb-3">
-              <input
-                name="search"
-                type="search"
-                class="form-control rounded textField"
-                placeholder="City"
-                aria-label="Search"
-                />
-              <a
-                href=""
-                type="button"
-                class="btn btn-primary input-group-text border-0"
-                id="check"
-                >
-                Check
-              </a>
+            <input
+              name="search"
+              type="search"
+              class="form-control rounded textField"
+              placeholder="City"
+              aria-label="Search"
+            />
+            <a
+              href=""
+              type="button"
+              class="btn btn-primary input-group-text border-0"
+              id="check"
+            >
+              Check
+            </a>
           </div>
-            <ul class="list">
-            </ul>
+          <ul class="list"></ul>
         </div>
-       
-        <div class="col-sm-6 col-lg-6 col-xl-6">
-
+        <!-- Main weather column -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
           <div class="card shadow-0 border top">
             <div class="card-body p-4">
               <h4 class="mb-1 sfw-normal cityName info">-</h4>
               <h5 class="mb-1 sfw-normal date info">-</h5>
-              <img
-                class="iconImg"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main mb-4 description">                  
+              <img class="iconImg" src="" alt="weather icon" />
+              <div class="main mb-4 description">
                 <strong>-</strong>
               </div>
-              <div class="temp mb-4 info">Temp: 
+              <div class="temp mb-4 info">
+                Temp:
                 <span class="data px-5"><strong>-</strong></span>
               </div>
-              <div class="feels mb-4 info">Feels like: 
+              <div class="feels mb-4 info">
+                Feels like:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
-              <div class="humidity mb-4 info">Humidity: 
+              <div class="humidity mb-4 info">
+                Humidity:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
               <div class="wind mb-2 info">
-                  Wind:
+                Wind:
                 <span class="data px-5"><strong>-</strong></span>
               </div>
-            </div>                
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="row row-cols-5">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+      <!-- Five day forecast row -->
+      <div class="row forecast">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <!-- Card 1 -->
           <div class="card shadow-0 border">
             <div class="card-body p-4">
               <h5 class="mb-1 sfw-normal date1 info">-</h5>
-              <img
-                class="iconImg1"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main1 mb-4 description1">                  
+              <img class="iconImg1" src="" alt="weather icon" />
+              <div class="main1 mb-4 description1">
                 <strong>-</strong>
               </div>
-              <div class="temp1 mb-4 info">Temp: 
+              <div class="temp1 mb-4 info">
+                Temp:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
-              <div class="humidity1 mb-4 info">Humidity: 
+              <div class="humidity1 mb-4 info">
+                Humidity:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
               <div class="wind1 mb-2 info">
-                  Wind:
+                Wind:
                 <span class="data px-4 info"><strong>-</strong></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <!-- Card 2 -->
           <div class="card shadow-0 border">
             <div class="card-body p-4">
               <h5 class="mb-1 sfw-normal date2 info">-</h5>
-              <img
-                class="iconImg2"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main2 mb-4 description2">                  
+              <img class="iconImg2" src="" alt="weather icon" />
+              <div class="main2 mb-4 description2">
                 <strong>-</strong>
               </div>
-              <div class="temp2 mb-4 info">Temp: 
+              <div class="temp2 mb-4 info">
+                Temp:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
-              <div class="humidity2 mb-4 info">Humidity: 
+              <div class="humidity2 mb-4 info">
+                Humidity:
                 <span class="data px-4 info"><strong>-</strong></span>
               </div>
               <div class="wind2 mb-2 info">
-                  Wind:
+                Wind:
                 <span class="data px-4 info"><strong>-</strong></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <!-- Card 3 -->
           <div class="card shadow-0 border">
             <div class="card-body p-4">
               <h5 class="mb-1 sfw-normal date3 info">-</h5>
-              <img
-                class="iconImg3"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main3 mb-4 description3">                  
-                <strong>-</strong>     
+              <img class="iconImg3" src="" alt="weather icon" />
+              <div class="main3 mb-4 description3">
+                <strong>-</strong>
               </div>
-              <div class="temp3 mb-4 info">Temp: 
+              <div class="temp3 mb-4 info">
+                Temp:
                 <span class="data px-4 info"><strong>-</strong></span>
               </div>
-              <div class="humidity3 mb-4 info">Humidity: 
+              <div class="humidity3 mb-4 info">
+                Humidity:
                 <span class="data px-4 info"><strong>-</strong></span>
               </div>
               <div class="wind3 mb-2 info">
-                  Wind:
-                <span class="data px-4"><strong>-</strong></span>
-              </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
-          <div class="card shadow-0 border">
-            <div class="card-body p-4">
-              <h5 class="mb-1 sfw-normal date4 info">-</h5>
-              <img
-                class="iconImg4"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main4 mb-4 description4">                  
-                <strong>-</strong>
-               </div>
-              <div class="temp4 mb-4 info">Temp: 
-                <span class="data px-4"><strong>-</strong></span>
-              </div>
-              <div class="humidity4 mb-4 info">Humidity: 
-                <span class="data px-4"><strong>-</strong></span>
-              </div>
-              <div class="wind4 mb-2 info">
-                  Wind:
+                Wind:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <!-- Card 4 -->
+          <div class="card shadow-0 border">
+            <div class="card-body p-4">
+              <h5 class="mb-1 sfw-normal date4 info">-</h5>
+              <img class="iconImg4" src="" alt="weather icon" />
+              <div class="main4 mb-4 description4">
+                <strong>-</strong>
+              </div>
+              <div class="temp4 mb-4 info">
+                Temp:
+                <span class="data px-4"><strong>-</strong></span>
+              </div>
+              <div class="humidity4 mb-4 info">
+                Humidity:
+                <span class="data px-4"><strong>-</strong></span>
+              </div>
+              <div class="wind4 mb-2 info">
+                Wind:
+                <span class="data px-4"><strong>-</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+          <!-- Card 5 -->
           <div class="card shadow-0 border">
             <div class="card-body p-4">
               <h5 class="mb-1 sfw-normal date5 info">-</h5>
-              <img
-                class="iconImg5"
-                src=""
-                alt="weather icon"
-              />
-              <div class="main5 mb-4 description5">                  
+              <img class="iconImg5" src="" alt="weather icon" />
+              <div class="main5 mb-4 description5">
                 <strong>-</strong>
               </div>
-              <div class="temp5 mb-4 info">Temp: 
+              <div class="temp5 mb-4 info">
+                Temp:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
-              <div class="humidity5 mb-4 info">Humidity: 
+              <div class="humidity5 mb-4 info">
+                Humidity:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
               <div class="wind5 mb-2 info">
-                  Wind:
+                Wind:
                 <span class="data px-4"><strong>-</strong></span>
               </div>
             </div>
           </div>
         </div>
       </div>
-          
-    </section> 
+    </section>
 
     <script src="./assets/js/main.js"></script>
   </body>

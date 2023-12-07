@@ -1,47 +1,79 @@
+/* Universal styling */
 body {
-    background-color: rgba(241, 150, 64, 0.15);
-    color: rgb(5, 5, 230);
+  background-color: rgba(241, 150, 64, 0.15);
+  color: rgb(5, 5, 230);
 }
-
+/* Container styling */
 .container {
-   background-color: rgb(212, 235, 255);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgb(44, 44, 44);
-    margin-top: 3rem;
-    padding: 2rem;
+  background-color: rgb(212, 235, 255);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(44, 44, 44);
+  margin-top: 3rem;
+  padding: 2rem;
 }
 
 h3,
 .info {
-color: midnightblue;
+  color: midnightblue;
 }
 
 h3 {
-    text-align: center;
-    text-shadow: -1px -1px 4px rgb(62, 131, 211);
+  text-align: center;
+  text-shadow: 1px 0px 4px rgb(62, 131, 211);
 }
 
 li {
-    background-color: rgb(165, 216, 248);
-    margin: .3rem;
-    list-style: none;
-    border-radius: 4px;
-    width: 60%;
-    text-align: center;
-    box-shadow: 0 1px 2px rgb(44, 44, 44);
+  background-color: rgb(165, 216, 248);
+  margin: 0.3rem;
+  list-style: none;
+  border-radius: 4px;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0 1px 2px rgb(44, 44, 44);
+}
+
+li:active {
+  background-color: antiquewhite;
+  box-shadow: 1px 1px 5px rgb(46, 46, 46);
+  transition: 0.1s;
+}
+
+[class*="description"] {
+  font-size: 115%;
+  text-shadow: 1px 1px 2px rgb(117, 164, 218);
 }
 
 .data {
-    color: blue;
-    left: 20px;
+  color: blue;
+  left: 20px;
 }
 
 .card {
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 5px rgb(44, 44, 44);
-    
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgb(44, 44, 44);
 }
 
 .card-body {
-    background-color: rgb(165, 216, 248);
+  background-color: rgb(165, 216, 248);
+}
+
+.forecast {
+  justify-content: space-between;
+}
+
+/* Styles for small screens */
+@media only screen and (max-width: 766px) {
+  body {
+    font-size: 85%;
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-size: 120%;
+  }
+
+  [class*="iconImg"] {
+    transform: scale(0.7);
+  }
 }

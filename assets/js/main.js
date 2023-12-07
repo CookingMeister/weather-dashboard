@@ -18,7 +18,7 @@ btn.addEventListener("click", function (event) {
 // Check city on keypress Enter
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    console.log("Enter pressed");
+    event.preventDefault();
     getStarted();
   }
 });
@@ -36,12 +36,14 @@ list.addEventListener("click", function (event) {
 // The main function
 
 function getStarted(city) {
-
   // Checks if a value for city is passed to function
   if (city) {
     chosenCity = city;
   } else {
     chosenCity = document.querySelector(".textField").value;
+    if (chosenCity === "") {
+      alert("please enter a proper city name");
+    }
   }
 
   // Get cityArray values from local storage and limit its length to 7
@@ -78,12 +80,8 @@ function getStarted(city) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data[0].lat, data[0].lon);
       lat = parseFloat(data[0].lat).toFixed(4);
       lon = parseFloat(data[0].lon).toFixed(4);
-      console.log("Latitude is " + lat);
-      console.log("Longitude is " + lon);
       getWeather();
     })
     .catch(function () {
@@ -102,7 +100,6 @@ function getStarted(city) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         let city = data.city.name;
         let country = data.city.country;
         document.querySelector(".cityName").textContent = city + ", " + country;
@@ -139,7 +136,7 @@ function getStarted(city) {
         let main1 = data.list[8].weather[0].main;
         let description1 = data.list[8].weather[0].description;
         let humidity1 = data.list[8].main.humidity;
-        let wind1 = parseFloat(data.list[8].wind.speed * 3.6).toFixed(2);
+        let wind1 = parseFloat(data.list[8].wind.speed * 3.6).toFixed(1);
         timestamp = data.list[8].dt;
         date = new Date(timestamp * 1000);
         let onlyDate1 = `${
@@ -156,6 +153,7 @@ function getStarted(city) {
         ).textContent = `Humidity: ${humidity1} %`;
         document.querySelector(".wind1").textContent = `Wind: ${wind1} km/hr`;
         getSecondDay();
+
         // Second day forecast values
         function getSecondDay() {
           let icon2 = data.list[16].weather[0].icon;
@@ -164,13 +162,12 @@ function getStarted(city) {
           let main2 = data.list[16].weather[0].main;
           let description2 = data.list[16].weather[0].description;
           let humidity2 = data.list[16].main.humidity;
-          let wind2 = parseFloat(data.list[16].wind.speed * 3.6).toFixed(2);
+          let wind2 = parseFloat(data.list[16].wind.speed * 3.6).toFixed(1);
           timestamp = data.list[16].dt;
           date = new Date(timestamp * 1000);
           let onlyDate = `${
             date.getMonth() + 1
           }/${date.getDate()}/${date.getFullYear()}`;
-          // document.querySelector(".cityName2").textContent = city + ", " + country;
           document.querySelector(".date2").textContent = onlyDate;
           document.querySelector(".iconImg2").src = iconURL2;
           document.querySelector(".temp2").textContent = `Temp: ${temp2} °C`;
@@ -191,13 +188,12 @@ function getStarted(city) {
           let main3 = data.list[24].weather[0].main;
           let description3 = data.list[24].weather[0].description;
           let humidity3 = data.list[24].main.humidity;
-          let wind3 = parseFloat(data.list[24].wind.speed * 3.6).toFixed(2);
+          let wind3 = parseFloat(data.list[24].wind.speed * 3.6).toFixed(1);
           timestamp = data.list[24].dt;
           date = new Date(timestamp * 1000);
           let onlyDate = `${
             date.getMonth() + 1
           }/${date.getDate()}/${date.getFullYear()}`;
-          // document.querySelector(".cityName3").textContent = city + ", " + country;
           document.querySelector(".date3").textContent = onlyDate;
           document.querySelector(".iconImg3").src = iconURL3;
           document.querySelector(".temp3").textContent = `Temp: ${temp3} °C`;
@@ -218,13 +214,12 @@ function getStarted(city) {
           let main4 = data.list[32].weather[0].main;
           let description4 = data.list[32].weather[0].description;
           let humidity4 = data.list[32].main.humidity;
-          let wind4 = parseFloat(data.list[32].wind.speed * 3.6).toFixed(2);
+          let wind4 = parseFloat(data.list[32].wind.speed * 3.6).toFixed(1);
           timestamp = data.list[32].dt;
           date = new Date(timestamp * 1000);
           let onlyDate = `${
             date.getMonth() + 1
           }/${date.getDate()}/${date.getFullYear()}`;
-          // document.querySelector(".cityName4").textContent = city + ", " + country;
           document.querySelector(".date4").textContent = onlyDate;
           document.querySelector(".iconImg4").src = iconURL4;
           document.querySelector(".temp4").textContent = `Temp: ${temp4} °C`;
@@ -245,13 +240,12 @@ function getStarted(city) {
           let main5 = data.list[39].weather[0].main;
           let description5 = data.list[39].weather[0].description;
           let humidity5 = data.list[39].main.humidity;
-          let wind5 = parseFloat(data.list[39].wind.speed * 3.6).toFixed(2);
+          let wind5 = parseFloat(data.list[39].wind.speed * 3.6).toFixed(1);
           timestamp = data.list[39].dt;
           date = new Date(timestamp * 1000);
           let onlyDate = `${
             date.getMonth() + 1
           }/${date.getDate()}/${date.getFullYear()}`;
-          // document.querySelector(".cityName5").textContent = city + ", " + country;
           document.querySelector(".date5").textContent = onlyDate;
           document.querySelector(".iconImg5").src = iconURL5;
           document.querySelector(".temp5").textContent = `Temp: ${temp5} °C`;
