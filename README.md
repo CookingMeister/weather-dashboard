@@ -32,8 +32,9 @@ THEN I am again presented with current and future conditions for that city
 
 The following shows the web applications appearance:
 
-[Click here to visit!](cookingmeister.github.io/weather-dashboard)
+![Blue dashboard with a 5 day weather forecast data](assets/img/Mock.png)
 
+[Click here to visit!](https://cookingmeister.github.io/weather-dashboard/)
 
 ## Credits
 

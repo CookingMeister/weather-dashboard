@@ -60,7 +60,7 @@ function getStarted(city) {
   let newL = document.createElement("li");
   let html = `${cityArray[cityArray.length - 1]}`;
   newL.innerHTML = html;
-  document.querySelector(".list").appendChild(newL);g
+  document.querySelector(".list").appendChild(newL);
   // Fetch weather section
   const key = "appid=b54627d0769529bdd5c76834e074fdb3";
   const url = "https://api.openweathermap.org/data/2.5/forecast?";
