@@ -1,41 +1,53 @@
-let btn = document.querySelector(".btn");
+const btn = document.querySelector(".btn");
 let cityArray = JSON.parse(localStorage.getItem("array")) || [];
-
+// Create city search history list from local storage on reload
 cityArray.forEach((index) => {
     let newL = document.createElement("li");
     html = `${index}`;
     newL.innerHTML = html;
     document.querySelector(".list").appendChild(newL);
 });
-// Check city button event listener
+// Check city on click
 btn.addEventListener("click", function (event) {
   event.preventDefault();
+  getStarted();
+});
+// Check city on keypress Enter
+document.addEventListener("keydown", function(event) {
+  // event.preventDefault();
+  
+  if (event.key === "Enter") {
+    console.log("Enter pressed");
+    getStarted();
+  } 
+});
+
+  function getStarted() {
+
+  // Get cityArray values from local storage and limit its length to 7
   if (cityArray.length > 7) {
-    console.log("the list is longer than 7");
     cityArray.shift();
     localStorage.setItem("array", JSON.stringify(cityArray));
     cityArray = JSON.parse(localStorage.getItem("array"));
   }
+  // Populate and set values for cityArray in local storage
   let chosenCity = document.querySelector(".textField").value;
-  console.log(chosenCity);
-
   cityArray = JSON.parse(localStorage.getItem("array")) || [];
   cityArray.push(chosenCity);
   localStorage.setItem("array", JSON.stringify(cityArray));
-  console.log(cityArray);
-
+  // Create list item of city search history
   let newL = document.createElement("li");
   let html = `${cityArray[cityArray.length - 1]}`;
   newL.innerHTML = html;
   document.querySelector(".list").appendChild(newL);
-
-  var key = "appid=b54627d0769529bdd5c76834e074fdb3";
-  var url = "https://api.openweathermap.org/data/2.5/forecast?";
-  var urlG = `http://api.openweathermap.org/geo/1.0/direct?q=${chosenCity}&limit=1&`;
+  // Fetch weather section
+  const key = "appid=b54627d0769529bdd5c76834e074fdb3";
+  const url = "https://api.openweathermap.org/data/2.5/forecast?";
+  let urlG = `http://api.openweathermap.org/geo/1.0/direct?q=${chosenCity}&limit=1&`;
   let lat = "";
   let lon = "";
-  let apiOptions = "units=metric&exclude=minutely,alerts&";
-  let fileG = urlG + apiOptions + key;
+  const apiOptions = "units=metric&exclude=minutely,alerts&";
+  const fileG = urlG + apiOptions + key;
   let latitude = "lat=" + lat + "&";
   let longitude = "lon=" + lon + "&";
   let file = url + latitude + longitude + apiOptions + key;
@@ -74,10 +86,11 @@ btn.addEventListener("click", function (event) {
         console.log(data);
         let city = data.city.name;
         let country = data.city.country;
-        console.log(city, country);
         document.querySelector(".cityName").textContent = city + ", " + country;
         let main = data.list[0].weather[0].main;
         let icon = data.list[0].weather[0].icon;
+        let feels = Math.round(data.list[0].main.feels_like);
+        document.querySelector(".feels").textContent = `Feels like: ${feels} °C`
         let description = data.list[0].weather[0].description;
         document.querySelector(".description").textContent =
           main + " with " + description;
@@ -90,16 +103,12 @@ btn.addEventListener("click", function (event) {
         let timestamp = data.list[0].dt;
         let date = new Date(timestamp * 1000);
         let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-        console.log(date.toLocaleString());
         let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
         document.querySelector(".date").textContent = onlyDate;
         document.querySelector(".iconImg").src = iconURL;
-        console.log("The weather is " + main + " with " + description);
-        console.log("temperature of " + temp + " °C");
-        console.log("humidity of " + humidity + " %");
-        console.log("wind of " + wind + " km/hr");
+    
         // First day forescast values
         let icon1 = data.list[8].weather[0].icon;
         let iconURL1 = `https://openweathermap.org/img/wn/${icon1}@2x.png`;
@@ -113,7 +122,7 @@ btn.addEventListener("click", function (event) {
         let onlyDate1 = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-        document.querySelector(".cityName1").textContent = city + ", " + country;
+        // document.querySelector(".cityName1").textContent = city + ", " + country;
         document.querySelector(".date1").textContent = onlyDate1;
         document.querySelector(".iconImg1").src = iconURL1;
         document.querySelector(".temp1").textContent = `Temp: ${temp1} °C`;
@@ -137,7 +146,7 @@ btn.addEventListener("click", function (event) {
         let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-        document.querySelector(".cityName2").textContent = city + ", " + country;
+        // document.querySelector(".cityName2").textContent = city + ", " + country;
         document.querySelector(".date2").textContent = onlyDate;
         document.querySelector(".iconImg2").src = iconURL2;
         document.querySelector(".temp2").textContent = `Temp: ${temp2} °C`;
@@ -162,7 +171,7 @@ btn.addEventListener("click", function (event) {
         let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-        document.querySelector(".cityName3").textContent = city + ", " + country;
+        // document.querySelector(".cityName3").textContent = city + ", " + country;
         document.querySelector(".date3").textContent = onlyDate;
         document.querySelector(".iconImg3").src = iconURL3;
         document.querySelector(".temp3").textContent = `Temp: ${temp3} °C`;
@@ -187,7 +196,7 @@ btn.addEventListener("click", function (event) {
         let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-        document.querySelector(".cityName4").textContent = city + ", " + country;
+        // document.querySelector(".cityName4").textContent = city + ", " + country;
         document.querySelector(".date4").textContent = onlyDate;
         document.querySelector(".iconImg4").src = iconURL4;
         document.querySelector(".temp4").textContent = `Temp: ${temp4} °C`;
@@ -212,7 +221,7 @@ btn.addEventListener("click", function (event) {
         let onlyDate = `${
           date.getMonth() + 1
         }/${date.getDate()}/${date.getFullYear()}`;
-        document.querySelector(".cityName5").textContent = city + ", " + country;
+        // document.querySelector(".cityName5").textContent = city + ", " + country;
         document.querySelector(".date5").textContent = onlyDate;
         document.querySelector(".iconImg5").src = iconURL5;
         document.querySelector(".temp5").textContent = `Temp: ${temp5} °C`;
@@ -226,4 +235,4 @@ btn.addEventListener("click", function (event) {
         console.log("Error");
       });
   }
-});
+  }

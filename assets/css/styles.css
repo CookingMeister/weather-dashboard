@@ -2,28 +2,35 @@ body {
     background-color: aliceblue;
     color: blue;
 }
+
 h3,
-.date,
-.temp,
-.feels,
-.humidity,
-.wind,
-.cityName {
+.info {
 color: midnightblue;
 }
+
 .h3 {
     text-align: center;
 }
+
+li {
+    background-color: rgb(165, 216, 248);
+    margin: .3rem;
+    list-style: none;
+    border-radius: 4px;
+    width: 60%;
+    text-align: center;
+}
+
 .data {
     color: blue;
     left: 20px;
 }
 
-
 .card {
     margin-bottom: 2rem;
     
 }
+
 .card-body {
     background-color: rgb(165, 216, 248);
 }
