@@ -60,11 +60,11 @@ function getStarted(city) {
   let newL = document.createElement("li");
   let html = `${cityArray[cityArray.length - 1]}`;
   newL.innerHTML = html;
-  document.querySelector(".list").appendChild(newL);
+  document.querySelector(".list").appendChild(newL);g
   // Fetch weather section
   const key = "appid=b54627d0769529bdd5c76834e074fdb3";
   const url = "https://api.openweathermap.org/data/2.5/forecast?";
-  let urlG = `http://api.openweathermap.org/geo/1.0/direct?q=${chosenCity}&limit=1&`;
+  let urlG = `https://api.openweathermap.org/geo/1.0/direct?q=${chosenCity}&limit=1&`;
   let lat = "";
   let lon = "";
   const apiOptions = "units=metric&exclude=minutely,alerts&";
