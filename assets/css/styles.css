@@ -1,6 +1,14 @@
 body {
-    background-color: aliceblue;
-    color: blue;
+    background-color: rgba(241, 150, 64, 0.15);
+    color: rgb(5, 5, 230);
+}
+
+.container {
+   background-color: rgb(212, 235, 255);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(44, 44, 44);
+    margin-top: 3rem;
+    padding: 2rem;
 }
 
 h3,
@@ -8,8 +16,9 @@ h3,
 color: midnightblue;
 }
 
-.h3 {
+h3 {
     text-align: center;
+    text-shadow: -1px -1px 4px rgb(62, 131, 211);
 }
 
 li {
@@ -19,6 +28,7 @@ li {
     border-radius: 4px;
     width: 60%;
     text-align: center;
+    box-shadow: 0 1px 2px rgb(44, 44, 44);
 }
 
 .data {
@@ -28,6 +38,7 @@ li {
 
 .card {
     margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgb(44, 44, 44);
     
 }
 
