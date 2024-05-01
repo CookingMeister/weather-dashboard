@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-A weather 5-day forecast dashboard using a server-side API, HTML, CSS & JS.
+A 5-day weather dashboard application using the OpenWeather API, JavaScript, HTML and CSS.
 
 ## Usage
 
